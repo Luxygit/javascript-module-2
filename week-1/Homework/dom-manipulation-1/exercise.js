@@ -58,9 +58,12 @@ Task 3
 
 Write JavaScript below that changes the background colour of the page when the 'Change colour' button is clicked.
 */
-var changeColour = document.querySelector("#bgrChangeBtn");
-changeColour.addEventListener("click", changeColourFnc);
+/*
+var changeColour = document.querySelector('#bgrChangeBtn')
+changeColour.addEventListener("click", () => { document.body.classList.toggle("site-filter") })
 
+/*document.body.style.backgroundColor = "red");
+/*
 function changeColourFnc() {
     document.body.style.backgroundColor = "red";
 }
@@ -77,41 +80,45 @@ addText.addEventListener("click", addTextFnc);
 
 function addTextFnc() {
     let para = document.createElement("p");
-    let parent = document.querySelector("#mainArticles")
-    parent.appendChild(para);
+    let parent = document.querySelector("#mainArticles");
+    parent.append(para);
 }
 
 /*
-Task 5
+Task 5 *******************
 ======
 
 When the 'Larger links!' button is clicked, the text of all links on the page should increase.
 */
-var changeSize = document.querySelector("#largerLinksBtn");
+const largerListButton = document.querySelector("#largerLinksBtn");
 
-var linksQuery = document.querySelectorAll("a");
-var allA = Array.from(linksQuery);
-
-/*changeSize.addEventListener("click", changeSizeFnc);
-allA.forEach(function changeSizeFnc() {
-    document.allA.style.fontSize = "larger";
-    }
-    )
-*/
-
-
-
+largerListButton.addEventListener('click', () => {
+    const as =  document.querySelectorAll("a");
+    as.forEach( (ax) => { 
+        ax.classList.add('bigger-links')
+    }) 
+});
 
 
 /*
-Task 6
+Task 6 
 ======
 
 Using the same function in Task 4,
 When the 'Add' button is clicked, get the text inside the input field and create a new paragraph in the "LEARN MORE" section
 Also clear the text inside the input field
 */
-addTextFnc
+
+    var articleBtn = document.querySelector("#addArticleBtn");
+articleBtn.addEventListener("click", addTextFnc);
+
+function addTextFnc() {
+    let para = document.createElement("p");
+    let parent = document.querySelector("#mainArticles");
+    let inputField = document.querySelector("#inputField");
+    parent.append(para, inputField.value);
+    inputField.value = '';
+}
 
 
 /*
@@ -122,9 +129,19 @@ Create an array of 5 different colors.
 Using the same function in Task 3, every time the 'Change colour' button is clicked, the background color will be changed with the next color in the array.
 The next color when you are in the last color of the array will be the first color again.
 */
-const colourArray = ["red", "black", "blue", "green", "purple"];
+const colourArray = ["site-filter-red", "site-filter-black", "site-filter-blue", "site-filter-green", "site-filter-orange"];
+let i = 0
 
-function changeColourFnc() {
-    document.body.style.backgroundColor = "red";
+let changeColourBtn = document.querySelector("#bgrChangeBtn");
+changeColourBtn.addEventListener("click", changeColour);
+
+function changeColour() {
+   
+    if (i < (colourArray.length - 1)) {
+        i++;
+    }
+    else {
+        i = 0
+    }    
+     document.querySelector("body").classList.toggle(colourArray[i]);
 }
-
