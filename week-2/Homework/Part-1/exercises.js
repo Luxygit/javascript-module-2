@@ -15,7 +15,12 @@
  */
 function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
-}
+  arrayOfPeople.forEach(function (obj){ 
+      content.innerHTML += '<h1>' + obj.name +'</h1>'
+      content.innerHTML += '<h2>' + obj.job +'</h2>'
+    })
+  }
+  
 
 /**
  *
@@ -25,7 +30,7 @@ function exerciseOne(arrayOfPeople) {
  *
  */
 function exerciseTwo(shopping) {
-  //Write your code in here
+  content.innerHTML += '<ul><p>Shopping List</p><li>bananas</li><li>peanut butter</li><li>muesli</li> </ul>'
 }
 
 /**
@@ -58,7 +63,31 @@ function exerciseTwo(shopping) {
     The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
 function exerciseThree(books) {
-  //Write your code in here
+  var listCreate = document.createElement("ul");
+  content.appendChild(listCreate);
+  var listCont = document.querySelector("ul:nth-of-type(2)")
+
+  books.forEach(function (book){
+    var paraCont = document.createElement("p");
+    var elementCont = document.createElement("li");
+
+    listCont.appendChild(elementCont) 
+    elementCont.appendChild(paraCont)
+    paraCont.textContent = book.title + " - " + book.author
+
+    var imgCont = document.createElement("img");
+    imgCont.src = "https://upload.wikimedia.org/wikipedia/en/f/fb/Le_Livre_d%27image.png";
+    elementCont.appendChild(imgCont);    
+
+    if (book.alreadyRead) {
+      elementCont.classList.add("orangeBtn")
+    }
+    else if (book.alreadyRead === false) {
+      elementCont.classList.add("greenBtn")
+    }
+    
+  })
+
 }
 
 //
