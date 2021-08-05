@@ -7,7 +7,22 @@ const studentGrades = {
     george: 17,
     abdul: 19,
   };
+
+    const studKeys = Object.keys(studentGrades);
+    const studValues = Object.values(studentGrades);
+
+studKeys.forEach( (key) => {
+  if (studentGrades[key] > 18) {
+  console.log(key + " - " + studentGrades[key]);
+  }
+}
+)
+
   
+  
+
+  
+
   // Prints
   // TOM - 20
   // ABDUL - 19
