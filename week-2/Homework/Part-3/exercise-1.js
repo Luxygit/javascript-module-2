@@ -39,10 +39,17 @@ function getOwnerFullName(house) {
 
 // returns an array of the owners' email addresses of the two houses
 //needs to correct THIS ^^^^^^^^
+//
+//
+//      diego is retarded!!! this is not an array
+//
+//
+
 function getEmailAddresses(house1, house2) {
-  var houses = [house1, house2];
-  houses.map((h) => h.currentOwner.email)
-}
+  
+  return house1.currentOwner.email + house2.currentOwner.email};
+  
+
 // returns the address for the cheapest house out of the two
 function getCheapestAddress(house1, house2) {
   if (house1.price < house2.price) {

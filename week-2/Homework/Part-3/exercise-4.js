@@ -53,30 +53,38 @@ let restaurant1 = {
   DO NOT EDIT ANYTHING ABOVE THIS LINE
   WRITE YOUR CODE BELOW
   */
-  
+ /* 1) Define a method findAvailableRestaurants which takes a number of people in parameter and returns
+all the restaurant names which have the required number of seats available at the moment.*/
   let restaurantFinderApplication = {
     applicationName: "Restaurant Finder",
     applicationVersion: "1.0",
    restaurants: restaurants,
     findAvailableRestaurants: function availableFnc (numberOfPeople) {
-     var availrest = restaurants.map(function (r) {return r.totalSeats - r.numberOfCustomers})
-    console.log(availrest);
-    function compareFnc() {availrest >= numberOfPeople};
-    var yesAvail = restaurants.filter(compareFnc);
-    console.log(restaurants.filter(compareFnc));
-    console.log(yesAvail);
-     
+    restaurants.map((r) => {
+      let availx = r.totalSeats - r.numberOfCustomers
+      console.log(availx);
+
+      if (availx >= numberOfPeople) {
+        console.log(r.name);
+        return r.name;
+      }})     
     },
 
-    findRestaurantServingDish: function (dishName) {
-      var restdish = restaurants.map((rest) => rest.menu.includes(dishName) )
-      console.log(restdish);
-      if (restdish == true) {restaurants.map((restau) => restau.name)}
+    findRestaurantServingDish: function dishFnc (dishName) {
+      var x = restaurants.filter((r) => {
+         return r.menu.includes(dishName)});
+         console.log(x);
+        var i = x.length;
+        
+      return x[0].name + ","+ x[1].name      
+      
     },
-    countNumberOfRestaurantsInArea: function (area) {
-      // Complete here
-    },
-  };
+    countNumberOfRestaurantsInArea: function areaFnc (area) {
+     var filteredRest = restaurants.filter((r) => {
+        return r.address.area.includes(area) })     
+    
+       return filteredRest.length;
+    }}
   
   /*
   DO NOT EDIT ANYTHING BELOW THIS LINE

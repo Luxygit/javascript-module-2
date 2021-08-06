@@ -101,3 +101,89 @@ var mentors = [
 
 //YOUR CODE HERE
 
+mentors.forEach((mentor) => {
+  let knowsReact = mentor.skills.includes("React");
+  if (knowsReact) {
+console.log("Hi, my name is " + mentor.firstName + " " + mentor.lastName + ". I work in Barcelona and i know React.")}});
+
+/*. To those that work in Barcelona, set "Jun1" in the class attribute, 
+and add a new skill to the list "SQL".
+To add elements in an array you can use .push() */
+
+mentors.forEach((mentor) => {
+  let checkIfBarcelona = mentor.job.city == "Barcelona";
+  if (checkIfBarcelona) {
+    mentor.skills.push("SQL");
+    console.log(mentor.skills);
+}});
+
+// 3. Create an object method with the name .addSkill() to be able to add skills from it
+mentors.forEach((mentor) => {
+    mentor.addSkill = function addSkillFnc (skillX){
+      return mentor.skills.push(skillX);
+    }
+    mentor.addSkill("juggling");
+    console.log(mentor.skills);
+});
+
+/*4. Create a function to add a skill to all members in a list of mentors WRONGASDAFSDF FIX IT!*/ 
+
+    let mentor1 = {};
+    let mentor2 = {};
+    let mentor3 = {};
+    let mentorList = [mentor1, mentor2, mentor3];
+
+function addSkill(mentors,newSkill){
+    mentors.forEach((ment) => {
+    return ment.skill = ment.skill.push(newSkill);
+    }
+    
+)};
+     
+   
+
+   
+/* 5. Create a function to remove a skill to all members in a list of mentors*/
+
+function removeSkill(mentors,newSkill){ 
+  mentors.forEach((ment) => {
+    return ment.skill = ment.skill.push(newSkill);
+    }
+    
+)};
+//6. Create a function mentorWithMoreSkills() that returns the name of the mentor with more number of skills
+function mentorWithMoreSkills() {
+
+ mentors.map((tor) => {
+   let mentorName = tor.firstName + " " + tor.lastName;
+   let maxLength = tor.skills.length;
+   console.log(maxLength);
+   console.log(mentorName);
+  if (tor.skills.length >= maxLength) {
+    return mentorName;
+  }
+  //let checkLength = Math.max(tor.skills.length);
+   
+})
+  
+
+}
+console.log(mentorWithMoreSkills());
+
+//7. Create an object method .addStudentLikes() that increments by one the attribute studentLikes
+mentors.forEach((mentor) => {
+    mentor.addStudentLikes = function addLikesFnc (){
+      return mentor.studentLikes = mentor.studentLikes + 1;
+    }
+    mentor.addStudentLikes();
+    console.log(mentor.studentLikes);
+});
+//8. Create a function that adds a student like to all mentors in the array
+
+function addStudentLikes(mentors){
+  mentors.forEach((mentor) => {
+       return mentor.studentLikes = mentor.studentLikes + 1;
+  })
+}
+addStudentLikes(mentors);
+console.log(addStudentLikes(mentors));
