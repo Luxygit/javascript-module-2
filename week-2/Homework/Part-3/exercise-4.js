@@ -57,12 +57,21 @@ let restaurant1 = {
   let restaurantFinderApplication = {
     applicationName: "Restaurant Finder",
     applicationVersion: "1.0",
-    restaurants: restaurants,
-    findAvailableRestaurants: function (numberOfPeople) {
-      // Complete here
+   restaurants: restaurants,
+    findAvailableRestaurants: function availableFnc (numberOfPeople) {
+     var availrest = restaurants.map(function (r) {return r.totalSeats - r.numberOfCustomers})
+    console.log(availrest);
+    function compareFnc() {availrest >= numberOfPeople};
+    var yesAvail = restaurants.filter(compareFnc);
+    console.log(restaurants.filter(compareFnc));
+    console.log(yesAvail);
+     
     },
+
     findRestaurantServingDish: function (dishName) {
-      // Complete here
+      var restdish = restaurants.map((rest) => rest.menu.includes(dishName) )
+      console.log(restdish);
+      if (restdish == true) {restaurants.map((restau) => restau.name)}
     },
     countNumberOfRestaurantsInArea: function (area) {
       // Complete here

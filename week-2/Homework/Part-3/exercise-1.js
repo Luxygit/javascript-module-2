@@ -33,13 +33,28 @@ let parkAvenueHouse = {
 */
 
 // returns the full name (first name + last name) of the owner of the house
-function getOwnerFullName(house) {}
+function getOwnerFullName(house) {
+  return house.currentOwner.firstName + " " + house.currentOwner.lastName
+}
 
 // returns an array of the owners' email addresses of the two houses
-function getEmailAddresses(house1, house2) {}
-
+//needs to correct THIS ^^^^^^^^
+function getEmailAddresses(house1, house2) {
+  var houses = [house1, house2];
+  houses.map((h) => h.currentOwner.email)
+}
 // returns the address for the cheapest house out of the two
-function getCheapestAddress(house1, house2) {}
+function getCheapestAddress(house1, house2) {
+  if (house1.price < house2.price) {
+    return house1.address
+  }
+  else if (house1.price > house2.price) {
+    return house2.address
+  }
+ /* let minPrice = Math.min(house1.price, house2.price);
+  let minHouse = 
+  return minPrice */
+}
 
 /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
