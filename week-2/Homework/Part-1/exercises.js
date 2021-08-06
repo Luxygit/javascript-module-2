@@ -62,23 +62,35 @@ function exerciseTwo(shopping) {
 
     The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
+//var booksCover = ["https://upload.wikimedia.org/wikipedia/commons/f/f3/Open_book_01.svg", "https://upload.wikimedia.org/wikipedia/en/f/fb/Le_Livre_d%27image.png", "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Books-aj.svg_aj_ashton_01.svg/800px-Books-aj.svg_aj_ashton_01.svg.png"]
+//var number = 0
+
+
+
 function exerciseThree(books) {
+  //setting the ul parents
   var listCreate = document.createElement("ul");
   content.appendChild(listCreate);
   var listCont = document.querySelector("ul:nth-of-type(2)")
 
+books[0].coverArt = "https://upload.wikimedia.org/wikipedia/commons/f/f3/Open_book_01.svg";
+books[1].coverArt = "https://upload.wikimedia.org/wikipedia/en/f/fb/Le_Livre_d%27image.png";
+books[2].coverArt = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Books-aj.svg_aj_ashton_01.svg/800px-Books-aj.svg_aj_ashton_01.svg.png";
+
+  //start of foreach
   books.forEach(function (book){
     var paraCont = document.createElement("p");
     var elementCont = document.createElement("li");
-
+//creatig and appending paragraphs and list items
     listCont.appendChild(elementCont) 
     elementCont.appendChild(paraCont)
     paraCont.textContent = book.title + " - " + book.author
-
+//setting and appending img
     var imgCont = document.createElement("img");
-    imgCont.src = "https://upload.wikimedia.org/wikipedia/en/f/fb/Le_Livre_d%27image.png";
+    imgCont.src = book.coverArt;
+    imgCont.classList.add("img-size")
     elementCont.appendChild(imgCont);    
-
+//setting background class colour to each li element
     if (book.alreadyRead) {
       elementCont.classList.add("orangeBtn")
     }
@@ -87,6 +99,8 @@ function exerciseThree(books) {
     }
     
   })
+//end of foreach
+
 
 }
 

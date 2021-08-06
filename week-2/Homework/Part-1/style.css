@@ -26,7 +26,10 @@ body {
   max-height: 40px;
   width: auto;
 }
-
+.img-size {
+  width: 200px;
+  height: 300px;
+}
 .navbar-light .navbar-nav .nav-link {
   color: #292b2c;
   font-weight: 600;
@@ -141,14 +144,14 @@ body {
 }
 
 #blueBtn {
-  background: #588fbd;
+  background: #0b0c0e;
 }
 
-#orangeBtn {
+.orangeBtn {
   background-color: #f0ad4e !important;
 }
 
-#greenBtn {
+.greenBtn {
   background-color: #cfebd0 !important;
 }
 
