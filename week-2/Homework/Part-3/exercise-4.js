@@ -73,9 +73,7 @@ all the restaurant names which have the required number of seats available at th
     findRestaurantServingDish: function dishFnc (dishName) {
       var x = restaurants.filter((r) => {
          return r.menu.includes(dishName)});
-         console.log(x);
-        var i = x.length;
-        
+         console.log(x);        
       return x[0].name + ","+ x[1].name      
       
     },

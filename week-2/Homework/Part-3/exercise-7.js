@@ -41,27 +41,62 @@ var product2 = {
   price: 9.99,
   stock: 2
 };
+var product3 = {
+  id: 3,
+  name: "Patch Wocker",
+  price: 19.99,
+  stock: 10
+};
+var product4 = {
+  id: 4,
+  name: "Poaster Plocker",
+  price: 69,
+  stock: 69
+};
 
 products.push(product1);
 products.push(product2);
+products.push(product3);
+products.push(product4);
+
 
 var shoppingCart = {
   totalPrice: 0,
   selectedProducts: []
 };
-
+// add values not the array strings!!!
 function addToShoppingCart(id){
+  let yesStock = products.forEach(s=>s.stock>0);
+  let filteredProducts = products.filter((x) => x.id === id);  
+  let priceOEach = filteredProducts.map((pr) => pr.price.toFixed(2));
+
+if (yesStock) {
+ shoppingCart.selectedProducts.push(filteredProducts[0]); 
+
+console.log(priceOEach);
+shoppingCart.totalPrice = priceOEach[0] + shoppingCart.totalPrice;
+}
 
 }
 
 function removeFromShoppingCart(id){
-
+  let filteredProducts = products.filter((x) => x.id === id);
+  let index = products.indexOf(filteredProducts);
+  console.log(filteredProducts);
+  console.log(index);
+  shoppingCart.selectedProducts.splice(index, 1); 
 }
-
+/*5. Create the function shop, the function will empty the list and set 0 in the totalPrice of the shopping cart
+In addition will substract 1 in the product stock of bought products */
 function shop(){
-
+  shoppingCart.totalPrice = 0;
+  shoppingCart.selectedProducts.splice(0, shoppingCart.selectedProducts.length);
+  products.forEach((product) => product.stock - 1);
+  products.map((product) => console.log(product.stock));
 }
+products.map((product) => console.log(product.stock));
 
+console.log(shoppingCart);
 //results
 addToShoppingCart(1);
 console.log("Step 1");

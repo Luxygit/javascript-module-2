@@ -154,17 +154,19 @@ function removeSkill(mentors,newSkill){
 //6. Create a function mentorWithMoreSkills() that returns the name of the mentor with more number of skills
 function mentorWithMoreSkills() {
 
- mentors.map((tor) => {
+ let mentorNameList = mentors.map((tor) => {
    let mentorName = tor.firstName + " " + tor.lastName;
    let maxLength = tor.skills.length;
    console.log(maxLength);
    console.log(mentorName);
-  if (tor.skills.length >= maxLength) {
-    return mentorName;
-  }
-  //let checkLength = Math.max(tor.skills.length);
+    
+  
    
 })
+console.log(mentorNameList);
+  
+ // if (mentorNameList.skills.length >= maxLength) 
+    return mentorNameList.length;
   
 
 }
@@ -176,7 +178,7 @@ mentors.forEach((mentor) => {
       return mentor.studentLikes = mentor.studentLikes + 1;
     }
     mentor.addStudentLikes();
-    console.log(mentor.studentLikes);
+    //console.log(mentor.studentLikes);
 });
 //8. Create a function that adds a student like to all mentors in the array
 
@@ -186,4 +188,4 @@ function addStudentLikes(mentors){
   })
 }
 addStudentLikes(mentors);
-console.log(addStudentLikes(mentors));
+//console.log(addStudentLikes(mentors));
