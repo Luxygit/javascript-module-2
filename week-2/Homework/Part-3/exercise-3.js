@@ -17,14 +17,14 @@ let coffeeMachine = {
     },
     insertedAmount: 0,
     insertMoney: function insertFnc (amount) {
-      return this.insertedAmount = this.insertedAmount + amount
+      return this.insertedAmount =  amount
     },
     getCoffee: function getFnc (coffee) {
       if (this.insertedAmount >= this.prices[coffee]) {
         this.insertedAmount = ""
         return 'Please take your ' + coffee
       }
-      else if (this.insertedAmount < this.prices[coffee])
+      else 
       { return "Sorry you don't have enough money for a " + coffee 
       }
     },

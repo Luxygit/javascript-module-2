@@ -13,7 +13,7 @@ const studentGrades = {
 
 studKeys.forEach( (key) => {
   if (studentGrades[key] > 18) {
-  console.log(key + " - " + studentGrades[key]);
+  console.log(key.toUpperCase() + " - " + studentGrades[key]);
   }
 }
 )

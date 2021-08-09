@@ -60,21 +60,19 @@ all the restaurant names which have the required number of seats available at th
     applicationVersion: "1.0",
    restaurants: restaurants,
     findAvailableRestaurants: function availableFnc (numberOfPeople) {
-    restaurants.map((r) => {
-      let availx = r.totalSeats - r.numberOfCustomers
-      console.log(availx);
-
-      if (availx >= numberOfPeople) {
-        console.log(r.name);
-        return r.name;
-      }})     
+   return this.restaurants
+      .filter( (restauranx) =>{
+      const availx = restauranx.totalSeats - restauranx.numberOfCustomers;
+      return availx >= numberOfPeople  
+      }) 
+      .map((restauranx) => restauranx.name)    
     },
 
     findRestaurantServingDish: function dishFnc (dishName) {
       var x = restaurants.filter((r) => {
-         return r.menu.includes(dishName)});
-         console.log(x);        
-      return x[0].name + ","+ x[1].name      
+         return r.menu.includes(dishName)}).map(r => r.name);
+         
+      return x     
       
     },
     countNumberOfRestaurantsInArea: function areaFnc (area) {

@@ -15,9 +15,10 @@
  */
 function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
-  arrayOfPeople.forEach(function (obj){ 
-      content.innerHTML += '<h1>' + obj.name +'</h1>'
-      content.innerHTML += '<h2>' + obj.job +'</h2>'
+  arrayOfPeople.forEach( (obj) => { 
+    const {name, job} = obj
+      content.appendChild(document.createElement("h1")).textContent = name
+      content.appendChild(document.createElement("h2")).textContent = job
     })
   }
   
@@ -30,7 +31,9 @@ function exerciseOne(arrayOfPeople) {
  *
  */
 function exerciseTwo(shopping) {
+  
   content.innerHTML += '<ul><p>Shopping List</p><li>bananas</li><li>peanut butter</li><li>muesli</li> </ul>'
+
 }
 
 /**
@@ -78,7 +81,7 @@ books[1].coverArt = "https://upload.wikimedia.org/wikipedia/en/f/fb/Le_Livre_d%2
 books[2].coverArt = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Books-aj.svg_aj_ashton_01.svg/800px-Books-aj.svg_aj_ashton_01.svg.png";
 
   //start of foreach
-  books.forEach(function (book){
+  books.forEach((book) => {
     var paraCont = document.createElement("p");
     var elementCont = document.createElement("li");
 //creatig and appending paragraphs and list items
@@ -94,7 +97,7 @@ books[2].coverArt = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/B
     if (book.alreadyRead) {
       elementCont.classList.add("orangeBtn")
     }
-    else if (book.alreadyRead === false) {
+    else {
       elementCont.classList.add("greenBtn")
     }
     

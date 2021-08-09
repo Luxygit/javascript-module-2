@@ -64,6 +64,8 @@ var shoppingCart = {
   totalPrice: 0,
   selectedProducts: []
 };
+//3. Create a function addToShoppingCart to add a product to the shopping cart list giving the product id,
+//the function will add the product to the selectedProduct list, and add the price to the totalPrice
 // add values not the array strings!!!
 function addToShoppingCart(id){
   let yesStock = products.forEach(s=>s.stock>0);
@@ -74,11 +76,11 @@ if (yesStock) {
  shoppingCart.selectedProducts.push(filteredProducts[0]); 
 
 console.log(priceOEach);
-shoppingCart.totalPrice = priceOEach[0] + shoppingCart.totalPrice;
+return shoppingCart.totalPrice = priceOEach[0] + shoppingCart.totalPrice;
 }
 
 }
-
+//4. Create the function removeFrom ShoppingCart to remove a product that a client does not like anymore
 function removeFromShoppingCart(id){
   let filteredProducts = products.filter((x) => x.id === id);
   let index = products.indexOf(filteredProducts);
