@@ -58,7 +58,27 @@ var movies = [
   },
 ];
 
-// create showMovies function
+
+/*Task 1
+Create a function called "showMovies" that
+- iterates through the "movies" array and
+- for each movie, it creates a <p> element with the movie title and director and append it to the #all-movies div.
+- it sets the innerText of the #movies-number element to the total number of the movies in the array "movies"
+*/
+// create showMovies function 
+function showMovies () {
+  
+  let parentDiv = document.getElementById("all-movies");
+  let movieNumberField = document.getElementById("movies-number");
+  movieNumberField.textContent = movies.length
+  
+  movies.map((mov) => {
+  let newParagraph = document.createElement("p");
+  newParagraph.textContent = mov.title + " - " + mov.director;
+  return parentDiv.appendChild(newParagraph)})
+};
+
+showMovies();
 
 
 // create a new movie object for your favorite movie

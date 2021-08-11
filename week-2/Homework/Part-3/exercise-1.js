@@ -43,7 +43,6 @@ function getOwnerFullName(house) {
 //
 //      diego is retarded!!! this is not an array
 //
-//
 
 function getEmailAddresses(house1, house2) {
   
