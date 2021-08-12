@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Slideshow</title>
-    <script src="slideshow.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Write your HTML in here -->
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slideshow</title>
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="img-cont">
+    <img src="" alt="" id="img-ele" width="400px" height="300px">
+  </div>
+  <div id="buttons-cont">
+    <button id="autoprev-button">Auto Prev</button>
+    <button id="prev-button">Prev</button>
+    <button id="stop-button">Stop</button>
+    <button id="next-button">Next</button>
+    <button id="autonext-button">Auto Next</button>
+    <input type="number" placeholder="delay in seconds" id="input-field" style="width: 115px;" min="0">
+  </div>
+  <script src="slideshow.js"></script>
+</body>
+
 </html>
