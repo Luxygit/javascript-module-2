@@ -144,7 +144,7 @@ mentors.forEach((mentor) => {
     //console.log(mentor.skills);
 });
 
-/*4. Create a function to add a skill to all members in a list of mentors WRONGASDAFSDF FIX IT!*/ 
+/*4. Create a function to add a skill to all members in a list of */ 
 
   
 
@@ -186,17 +186,13 @@ function mentorWithMoreSkills(mentors) {
   //this is the highest number of skills
   let highestLength = Math.max(...eachLength);
 //now I filter the mentors whose skills length is equal to the highest
- let mostSkilledMentors = mentors.filter(z => z.skills.length == highestLength).map((y) => y.firstName + " " + y.lastName);
+ let mostSkilledMentors = mentors.filter(z => z.skills.length == highestLength);
  //console.log(mostSkilledMentors); this is the whole array of highest skilled mentors
  //finally returning only the names of the filtered array.
 
- //let firstNameOf = mostSkilledMentors.map((y) => y.firstName + y.lastName)
- console.log(mostSkilledMentors);
-
- //why is it not RETURNING????????????????
- return "dssfdsf";
-  //let namesOf = mostSkilledMentors.map(eachmentor => {console.log(eachmentor.firstName + " " + eachmentor.lastName)});
-  
+ let namesOfSk = mostSkilledMentors.map((y) => y.firstName + " " + y.lastName);
+ console.log(namesOfSk);
+ 
 };
 mentorWithMoreSkills(mentors);
 
