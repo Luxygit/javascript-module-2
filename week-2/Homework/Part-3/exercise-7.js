@@ -59,7 +59,6 @@ products.push(product2);
 products.push(product3);
 products.push(product4);
 
-
 var shoppingCart = {
   totalPrice: 0,
   selectedProducts: []
@@ -68,38 +67,48 @@ var shoppingCart = {
 //the function will add the product to the selectedProduct list, and add the price to the totalPrice
 // add values not the array strings!!!
 function addToShoppingCart(id){
-  let yesStock = products.forEach(s=>s.stock>0);
-  let filteredProducts = products.filter((x) => x.id === id);  
-  let priceOEach = filteredProducts.map((pr) => pr.price.toFixed(2));
 
-if (yesStock) {
- shoppingCart.selectedProducts.push(filteredProducts[0]); 
+  let chosenProduct = products.find((product)=>  product.id == id);
+  let shoppingElement = shoppingCart.selectedProducts;
+  let priceOfProduct = chosenProduct.price;
 
-console.log(priceOEach);
-return shoppingCart.totalPrice = priceOEach[0] + shoppingCart.totalPrice;
-}
-
+  shoppingElement = shoppingElement.push(chosenProduct);
+  
+  shoppingCart.totalPrice = shoppingCart.totalPrice + priceOfProduct;
+  
 }
 //4. Create the function removeFrom ShoppingCart to remove a product that a client does not like anymore
 function removeFromShoppingCart(id){
-  let filteredProducts = products.filter((x) => x.id === id);
-  let index = products.indexOf(filteredProducts);
-  console.log(filteredProducts);
-  console.log(index);
+  let filteredProducts = shoppingCart.selectedProducts.find((x) => x.id === id);
+  let index = shoppingCart.selectedProducts.indexOf(filteredProducts);
+
   shoppingCart.selectedProducts.splice(index, 1); 
 }
 /*5. Create the function shop, the function will empty the list and set 0 in the totalPrice of the shopping cart
 In addition will substract 1 in the product stock of bought products */
 function shop(){
+  //let cartProducts = products.find((product)=>  product.id);
+  //console.log(shoppingCart.selectedProducts);
+  let boughtElementIds = shoppingCart.selectedProducts.map((product) =>product.id);
+  //console.log(boughtElementIds);
+  //products.map((product) => console.log(product.stock));
+  //let availableStockIds = products.map((x)=>x.id);
+  //console.log(availableStockIds);
+  
+  boughtElementIds.forEach((i) => products[i-1].stock = products[i-1].stock- 1 );
+//console.log(products[0].stock); 
+//console.log(products[3].stock); 
+   
+ shoppingCart.selectedProducts = [];
+ 
   shoppingCart.totalPrice = 0;
-  shoppingCart.selectedProducts.splice(0, shoppingCart.selectedProducts.length);
-  products.forEach((product) => product.stock - 1);
-  products.map((product) => console.log(product.stock));
 }
-products.map((product) => console.log(product.stock));
+//products.map((product) => console.log(product.stock));
 
-console.log(shoppingCart);
-//results
+
+
+//console.log(shoppingCart);
+//results********************************************************
 addToShoppingCart(1);
 console.log("Step 1");
 console.log("Total Price = " + shoppingCart.totalPrice);
